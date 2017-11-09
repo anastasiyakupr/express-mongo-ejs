@@ -55,27 +55,44 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+// ===================== //
+// START: Mongo
+// ===================== //
+//
+// Connection
+var mongoose = require('mongoose');
+mongoose.connect("mongodb://localhost:27017/bookworm");
+var db = mongoose.connection;
+// Error
+db.on('error', console.error.bind(console, 'connection error: '));
+//
+// ===================== //
+// END: Mongo
+// ===================== //
+
+// ===================== //
 // START: MySQL
-
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'dev',
-  password : 'PWabc123',
-  database : 'Sandbox'
-});
-
-connection.connect();
-
-connection.query('SELECT * from Users', function(err, rows, fields) {
-  if (!err)
-    console.log('The solution is: ', rows);
-  else
-    console.log('Error while performing Query.');
-});
-
-connection.end();
-
+// ===================== //
+// var mysql      = require('mysql');
+// var connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'dev',
+//   password : 'PWabc123',
+//   database : 'Sandbox'
+// });
+//
+// connection.connect();
+// connection.query('SELECT * from Users', function(err, rows, fields) {
+//   if (!err)
+//     console.log('The solution is: ', rows);
+//   else
+//     console.log('Error while performing Query.');
+// });
+// connection.end();
+//
+// ===================== //
 // END: MySQL
+// ===================== //
 
 module.exports = app;
