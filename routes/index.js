@@ -23,19 +23,19 @@ router.post('/register', function (req, res, next) {
         return next(err);
       }
 
-  //     let userData = {
-  //       email: req.body.email,
-  //       alias: req.body.alias,
-  //       password: req.body.email
-  //     };
+      let userData = {
+        email: req.body.email,
+        alias: req.body.alias,
+        password: req.body.email
+      };
 
-  //     User.create(userData, (error, user) => {
-  //       if (error) {
-  //         return next(error);
-  //       } else {
-  //         return res.redirect('/profile');
-  //       }
-  //     });
+      User.create(userData, (error, user) => {
+        if (error) {
+          return next(error);
+        } else {
+          return res.redirect('/profile');
+        }
+      });
 
     } else {
       let err = new Error('All fields required.');
