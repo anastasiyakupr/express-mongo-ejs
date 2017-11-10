@@ -1,3 +1,6 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<% let title = error.status + ' Error!' %>
+<% include theme/header %>
+	<h1>Awwwwww, Sheeit...</h1>
+	<h2><%= error.status %> - <%= message %></h2>
+	<pre><%= error.stack %></pre>
+<% include theme/footer %>

@@ -59,14 +59,14 @@ app.use(function(err, req, res, next) {
 // ===================== //
 // START: Mongo
 // ===================== //
-//
+
 // Connection
 var mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/bookworm");
 var db = mongoose.connection;
 // Error
 db.on('error', console.error.bind(console, 'connection error: '));
-//
+
 // ===================== //
 // END: Mongo
 // ===================== //

@@ -1,5 +1,10 @@
 <% include theme/header %>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <button>Click Me!</button>
+    <form action="/register" method="post">
+        <p><label for="userAlias">Alias:</label><input type="text" id="userAlias" name="alias"></p>  
+        <p><label for="userEmail">E-Mail:</label><input type="text" id="userEmail" name="email"></p>
+        <p><label for="userPassword">Password:</label><input type="text" id="userPassword" name="password"></p>
+        <p><label for="userPasswordConfirm">Confirm Password:</label><input type="text" id="userPasswordConfirm" name="confirmPassword"></p>
+        <button>Add User</button>
+    </form>
 <% include theme/footer %>
