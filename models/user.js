@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 var UserSchema = new mongoose.Schema({
-	email: {
+	alias: {
 		type: String,
-		unique: true,
 		required: true,
 		trim: true
 	},
-	alias: {
+	email: {
 		type: String,
+		unique: true,
 		required: true,
 		trim: true
 	},
