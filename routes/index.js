@@ -1,4 +1,5 @@
 let express = require('express');
+let bodyParser = require('body-parser');
 let router = express.Router();
 let User = require('../models/user');
 
@@ -26,10 +27,10 @@ router.post('/register', function (req, res, next) {
       let userData = {
         email: req.body.email,
         alias: req.body.alias,
-        password: req.body.email
+        password: req.body.password
       };
 
-      User.create(userData, (error, user) => {
+      User.create(userData, function (error, user) {
         if (error) {
           return next(error);
         } else {
@@ -42,8 +43,6 @@ router.post('/register', function (req, res, next) {
       err.status = 400;
       return next(err);
     }
-
-  res.send('User Registered!');
 
 });
 
