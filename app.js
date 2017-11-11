@@ -48,7 +48,7 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'assets')));
 
 // Routes
-var routes = require('./routes/index');
+var routes = require('./controllers/index');
 app.use('/', routes);
 
 // Catch 404 and forward to Error Handler

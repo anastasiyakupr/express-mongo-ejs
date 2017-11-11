@@ -3,7 +3,23 @@ body {
   font-size: 14px;
   font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align: center;
-  padding: 50px;
+  padding: 0;
+  margin: 0;
+  background: #999;
+}
+header {
+  text-align: center;
+  box-shadow: 0 3px rgba(0,0,0,0.1);
+  background: #fff;
+  a {
+    display: inline-block;
+    padding: 10px;
+  }
+}
+footer {
+  min-height: 100px;
+  box-shadow: inset 0 3px rgba(0,0,0,0.1);
+  background: #999;
 }
 form {
   display: block;
@@ -37,6 +53,21 @@ h1 {
   color: #333;
 }
 a {
-  color: #00B7FF;
+  color: rgb(0, 163, 223);
+}
+#mainContainer {
+  padding: 20px 0;
+  background: rgba(255,255,255,0.85);
+}
+.tilda {
+  font-size: 0.85em;
+  &::before {
+    content: "~";
+    margin-right: 3px;
+  }
+  &::after {
+    content: "~";
+    margin-left: 3px;
+  }
 }
   

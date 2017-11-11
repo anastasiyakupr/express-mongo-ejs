@@ -40,7 +40,7 @@ UserSchema.statics.authenticate = function(email, password, callback) {
 			}
 		});
 	});
-}
+};
 
 // Hash/Salt Password
 UserSchema.pre('save', function(next) {
