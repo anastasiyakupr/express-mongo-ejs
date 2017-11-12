@@ -1,4 +1,10 @@
-<% let title = error.status + ' Error!' %>
+<%
+
+// Create title of Error
+let title = error.status + ' Error' %>
+
+%>
+
 <% include theme/header %>
 	<h1>Awwwwww, Sheeit...</h1>
 	<h2><%= error.status %> - <%= message %></h2>
