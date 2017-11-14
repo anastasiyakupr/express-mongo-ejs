@@ -26,7 +26,7 @@ app.use( function (req, res, next) {
 
 // MongoDB
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/bookworm", {
+mongoose.connect("mongodb://localhost:27017/htmlcore", {
   useMongoClient: true
 });
 var db = mongoose.connection;
