@@ -44,7 +44,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(sassMiddleware({
   src: __dirname + '/assets/scss',
-  dest: __dirname + '/assets/css',
+  dest: __dirname + '/public/css',
   prefix: '/css',
   indentedSyntax: false, // true = .sass and false = .scss
   outputStyle: 'compressed',
@@ -52,9 +52,11 @@ app.use(sassMiddleware({
   debug: true
 }));
 app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Routes
-var routes = require('./controllers/index');
+var routes = require('./routes/index');
 app.use('/', routes);
 
 // Catch 404 and forward to Error Handler
