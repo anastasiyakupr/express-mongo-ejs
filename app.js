@@ -53,7 +53,6 @@ app.use(sassMiddleware({
   sourceMap: true,
   debug: true
 }));
-app.use(express.static(path.join(__dirname, 'src')));
 app.use(express.static(path.join(__dirname, 'assets')));
 
 
