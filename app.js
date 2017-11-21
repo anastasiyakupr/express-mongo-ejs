@@ -20,7 +20,10 @@ app.use(session({
 
 // Session Template Variables
 app.use( function (req, res, next) {
+  res.locals.title = "HTMLcore";
   res.locals.currentUser = req.session.userId;
+  res.locals.alias = req.session.alias;
+  res.locals.email = req.session.email;
   next();
 });
 
@@ -55,10 +58,11 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'assets')));
 
-
 // Routes
-var routes = require('./routes/index');
+var routes = require('./routes/');
 app.use('/', routes);
+var contact = require('./routes/contact');
+app.use('/contact', contact);
 
 // Catch 404 and forward to Error Handler
 app.use(function(req, res, next) {

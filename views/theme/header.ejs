@@ -6,12 +6,11 @@
     <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
-    <header>
-        <a href="/">Home</a>|
-      <% if (!currentUser) { %>
-        <a href="/login">Log In</a>|<a href="/register">Register</a>
-      <% } else { %>
-        <a href="/profile">Profile</a>|<a href="/logout">Log Out</a> 
-      <% } %>
+    <header class="group">
+      <div class="user"><b><%= alias %></b></a>
+      </div>
+      <div class="menu">
+          <a href="/">Home</a><% if (!currentUser) { %><a href="/login">Log In</a><a href="/register">Register</a><% } else { %><a href="/profile">Profile</a><a href="/contact">Contact</a><a href="/logout">Log Out</a><% } %>
+        </div>
     </header>
     <div id="mainContainer">  
