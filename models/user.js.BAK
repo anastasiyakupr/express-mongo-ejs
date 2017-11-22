@@ -5,6 +5,11 @@ var bcrypt = require('bcrypt');
 
 // Create Schema
 var UserSchema = new mongoose.Schema({
+	alias: {
+		type: String,
+		required: true,
+		trim: true
+	},
 	email: {
 		type: String,
 		unique: true,
@@ -14,18 +19,6 @@ var UserSchema = new mongoose.Schema({
 	password:  {
 		type: String,
 		required: true
-	},
-	alias: {
-		type: String,
-		unique: true,
-		required: true,
-		trim: true
-	},
-	firstname: {
-		type: String
-	},
-	lastname: {
-		type: String
 	}
 });
 

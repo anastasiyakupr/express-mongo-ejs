@@ -24,7 +24,9 @@ router.get('/profile', mid.requiresLogin, function (req, res, next) {
       return next(error);
     } else {
       return res.render('profile', {
-        title: 'Profile: ' + user.alias
+        title: 'Profile: ' + user.alias,
+        firstname: user.firstname,
+        lastname: user.lastname
       });
     }
   });
@@ -101,8 +103,10 @@ router.post('/register', function (req, res, next) {
       }
 
       let userData = {
-        email: req.body.email,
         alias: req.body.alias,
+        email: req.body.email,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
         password: req.body.password
       };
 
