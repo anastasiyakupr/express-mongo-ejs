@@ -1,6 +1,14 @@
 <% include theme/header %>
-	<h1><%= alias %></h1>
-	<h3><%= email %></h3>
-	<p>First Name: <%= firstname %></p>
-	<p>Last Name: <%= lastname %></p>
+	<div id="profile">
+		<h1><%= alias %></h1>
+		<h3><%= email %></h3>
+		<p>First Name: <%= firstName %></p>
+		<p>Last Name: <%= lastName %></p>
+		<p>XP: <%= xp %></p>
+		<p>Level: <%= lvl %></p>
+		<p>Kudos: <%= kudos %></p>
+		<p>Role: <%= role %></p>
+		<p>Last Updated: <%= updatedOn %></p>
+		<p>Joined On: <%= createdOn %></p>
+	</div>
 <% include theme/footer %>

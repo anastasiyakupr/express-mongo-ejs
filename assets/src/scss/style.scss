@@ -77,8 +77,13 @@ a {
   color: rgb(0, 163, 223);
 }
 #mainContainer {
-  padding: 20px 0;
+  padding: 20px;
   background: rgba(255,255,255,0.85);
+}
+#profile {
+  width: 100%;
+  max-width: 65%;
+  text-align: left;
 }
 .group {
   &:before,

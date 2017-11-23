@@ -23,10 +23,18 @@ router.get('/profile', mid.requiresLogin, function (req, res, next) {
     if (error) {
       return next(error);
     } else {
+      // TODO: Apply when user account is edited.
+      // user.updatedOn = new Date();
       return res.render('profile', {
         title: 'Profile: ' + user.alias,
-        firstname: user.firstname,
-        lastname: user.lastname
+        firstName: user.firstName,
+        lastName: user.lastName,
+        xp: user.xp,
+        lvl: user.lvl,
+        kudos: user.kudos,
+        role: user.role,
+        updatedOn: user.updatedOn,
+        createdOn: user.createdOn
       });
     }
   });
@@ -105,8 +113,8 @@ router.post('/register', function (req, res, next) {
       let userData = {
         alias: req.body.alias,
         email: req.body.email,
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
+        firstName: req.body.firstname,
+        lastName: req.body.lastname,
         password: req.body.password
       };
 

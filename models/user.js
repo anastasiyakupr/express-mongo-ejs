@@ -21,11 +21,35 @@ var UserSchema = new mongoose.Schema({
 		required: true,
 		trim: true
 	},
-	firstname: {
+	firstName: {
 		type: String
 	},
-	lastname: {
+	lastName: {
 		type: String
+	},
+	xp: {
+		type: Number,
+		default: 100
+	},
+	lvl: {
+		type: Number,
+		default: 1
+	},
+	kudos: {
+		type: Number,
+		default: 1
+	},
+	role: {
+		type: Number,
+		default: 10
+	},
+	updatedOn: {
+		type: Date,
+		default: Date.now
+	},
+	createdOn: {
+		type: Date,
+		default: Date.now
 	}
 });
 
