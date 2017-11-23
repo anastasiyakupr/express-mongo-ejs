@@ -48,15 +48,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(sassMiddleware({
-  src: __dirname + '/src/scss',
-  dest: __dirname + '/assets/css',
+  src: __dirname + '/assets/src/scss',
+  dest: __dirname + '/assets/public/css',
   prefix: '/css',
   indentedSyntax: false, // true = .sass and false = .scss
   outputStyle: 'compressed',
   sourceMap: true,
   debug: true
 }));
-app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, 'assets/public')));
 
 // Routes
 var routes = require('./routes/');
