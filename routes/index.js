@@ -6,10 +6,6 @@ let mid = require('../middleware');
 
 let User = require('../models/user');
 
-// ====================
-//  GET
-// ====================
-
 // GET /
 router.get('/', function (req, res, next) {
   return res.render('index', {
@@ -23,8 +19,21 @@ router.get('/profile', mid.requiresLogin, function (req, res, next) {
     if (error) {
       return next(error);
     } else {
+      
+      
       // TODO: Apply when user account is edited.
-      // user.updatedOn = new Date();
+      let userData = {
+        updatedOn: Date.now()
+      };
+      user.update(userData, function (error) {
+        if (error) {
+          return next(error);
+        } else {
+          return next();
+        }
+      });
+
+
       return res.render('profile', {
         title: 'Profile: ' + user.alias,
         firstName: user.firstName,
@@ -66,10 +75,6 @@ router.get('/register', mid.loggedOut, function (req, res, next) {
     title: 'User Registration'
   });
 });
-
-// ====================
-//  POST
-// ====================
 
 // POST /login
 router.post('/login', function (req, res, next) {

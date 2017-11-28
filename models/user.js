@@ -45,11 +45,11 @@ var UserSchema = new mongoose.Schema({
 	},
 	updatedOn: {
 		type: Date,
-		default: Date.now
+		default: Date.now()
 	},
 	createdOn: {
 		type: Date,
-		default: Date.now
+		default: Date.now()
 	}
 });
 
@@ -84,6 +84,12 @@ UserSchema.pre('save', function(next) {
     next();
   });
 });
+
+// UserSchema.pre('update', function(next) {
+// 	var user = this;
+// 	user.update({ updatedOn: Date.now() });
+// 	next();
+// });
 
 var User = mongoose.model('User', UserSchema);
 module.exports = User;

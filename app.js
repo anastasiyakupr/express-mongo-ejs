@@ -1,5 +1,8 @@
 'use strict';
 
+// Database
+var mongodb = require('./conn.js');
+
 // Dependencies
 var express = require('express');
 var path = require('path');
@@ -26,14 +29,6 @@ app.use( function (req, res, next) {
   res.locals.email = req.session.email;
   next();
 });
-
-// MongoDB
-var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/htmlcore", {
-  useMongoClient: true
-});
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
 
 // EJS View Engine
 app.set('views', path.join(__dirname, 'views'));
