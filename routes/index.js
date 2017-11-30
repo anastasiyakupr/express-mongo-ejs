@@ -6,33 +6,40 @@ let mid = require('../middleware');
 
 let User = require('../models/user');
 
+// ==================================================
 // GET /
+// ==================================================
 router.get('/', function (req, res, next) {
   return res.render('index', {
     title: 'Home'
   });
 });
 
+// ==================================================
 // GET /profile
+// ==================================================
 router.get('/profile', mid.requiresLogin, function (req, res, next) {
   User.findById(req.session.userId).exec(function( error, user ) {
     if (error) {
       return next(error);
     } else {
       
-      
+      // ----------------------------------------
       // TODO: Apply when user account is edited.
-      let userData = {
-        updatedOn: Date.now()
-      };
-      user.update(userData, function (error) {
-        if (error) {
-          return next(error);
-        } else {
-          return next();
-        }
-      });
-
+      // ----------------------------------------
+      // let userData = {
+      //   updatedOn: Date.now()
+      // };
+      // user.update(userData, function (error) {
+      //   if (error) {
+      //     return next(error);
+      //   } else {
+      //     return next();
+      //   }
+      // });
+      // user.updatedOn = new Date();
+      // ----------------------------------------
+      // ----------------------------------------
 
       return res.render('profile', {
         title: 'Profile: ' + user.alias,
@@ -49,34 +56,18 @@ router.get('/profile', mid.requiresLogin, function (req, res, next) {
   });
 });
 
+// ==================================================
 // GET /login
+// ==================================================
 router.get('/login', mid.loggedOut, function (req, res, next) {
   return res.render('login', {
     title: 'User Login'
   });
 });
 
-// GET /logout
-router.get('/logout', function (req, res, next) {
-  if ( req.session ) {
-    req.session.destroy(function(err) {
-      if (err) {
-        return next(err);
-      } else {
-        return res.redirect('/');
-      }
-    });
-  }
-});
-
-// GET /register
-router.get('/register', mid.loggedOut, function (req, res, next) {
-  return res.render('register', {
-    title: 'User Registration'
-  });
-});
-
+// ==================================================
 // POST /login
+// ==================================================
 router.post('/login', function (req, res, next) {
   if (req.body.email && req.body.password) {
     
@@ -101,7 +92,33 @@ router.post('/login', function (req, res, next) {
   }
 });
 
+// ==================================================
+// GET /logout
+// ==================================================
+router.get('/logout', function (req, res, next) {
+  if ( req.session ) {
+    req.session.destroy(function(err) {
+      if (err) {
+        return next(err);
+      } else {
+        return res.redirect('/');
+      }
+    });
+  }
+});
+
+// ==================================================
+// GET /register
+// ==================================================
+router.get('/register', mid.loggedOut, function (req, res, next) {
+  return res.render('register', {
+    title: 'User Registration'
+  });
+});
+
+// ==================================================
 // POST /register
+// ==================================================
 router.post('/register', function (req, res, next) {
 
     if (req.body.email &&

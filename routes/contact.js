@@ -5,7 +5,9 @@ let router = express.Router();
 
 let Contact = require('../models/contact');
 
+// ==================================================
 // GET /contact
+// ==================================================
 router.get('/', function (req, res, next) {
   return res.render('contact', {
 		title: 'Contact Us',
@@ -14,7 +16,9 @@ router.get('/', function (req, res, next) {
   });
 });
 
+// ==================================================
 // POST /contact
+// ==================================================
 router.post('/', function (req, res, next) {
   if (req.body.message && req.body.subject) {
     

@@ -11,25 +11,24 @@
 	<p style="font-size:0.85em"><b>Joined On:</b><br/><%= createdOn %></p>
 </div>
 
-<!-- ======================================================== -->
-<!--  TODO: Organize the code below within a new or old file  -->
-<!-- ======================================================== -->
+<!-- ============================== -->
+<!--  TODO: Refactor and integrate  -->
+<!-- ============================== -->
 <script>
 	
 	const roleEl = document.body.querySelector('#role');
 	roleEl.addEventListener('click', () => {
-		let role = 5;
-		if (role == 10) {
+		if (roleEl.value == "General User") {
 			roleEl.value = "Administrator";
 			console.log(role + ": Administrator");
-		}	else {
+		}	else if (roleEl.value == "Administrator") {
 			roleEl.value = "General User";
 			console.log(role + ": General User");
 		}
 	});
 
 </script>
-<!-- ======================================================== -->
-<!-- ======================================================== -->
+<!-- ============================== -->
+<!-- ============================== -->
 
 <% include theme/footer %>
