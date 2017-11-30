@@ -1,14 +1,35 @@
 <% include theme/header %>
-	<div id="profile">
-		<h1><%= alias %></h1>
-		<h3><%= email %></h3>
-		<p>First Name: <%= firstName %></p>
-		<p>Last Name: <%= lastName %></p>
-		<p>XP: <%= xp %></p>
-		<p>Level: <%= lvl %></p>
-		<p>Kudos: <%= kudos %></p>
-		<p>Role: <%= role %></p>
-		<p>Last Updated: <%= updatedOn %></p>
-		<p>Joined On: <%= createdOn %></p>
-	</div>
+<div id="profile">
+	<input type="submit" value="<% if (role===10) {roleTitle="Administrator"}	else {roleTitle="General User"} %><%= roleTitle %>" id="role" style="display:inline-block;color:#999;font-size:0.65em;text-transform:uppercase;background:rgba(0,0,0,0.05);line-height:1;padding:4px;margin-bottom:10px;border:0;border-radius:4px;outline-color: #ccc;" />
+	<h1 style="margin:0"><%= alias %></h1>
+	<h3 style="margin:0"><%= firstName %> <%= lastName %></h3>
+	<p><a href="mailto:<%= email %>"><%= email %></a></p>
+	<p><b>Level:</b> <%= lvl %></p>
+	<p><b>XP:</b> <%= xp %></p>
+	<p><b>Kudos:</b> <%= kudos %></p>
+	<p style="font-size:0.85em"><b>Last Updated:</b><br/><%= updatedOn %></p>
+	<p style="font-size:0.85em"><b>Joined On:</b><br/><%= createdOn %></p>
+</div>
+
+<!-- ======================================================== -->
+<!--  TODO: Organize the code below within a new or old file  -->
+<!-- ======================================================== -->
+<script>
+	
+	const roleEl = document.body.querySelector('#role');
+	roleEl.addEventListener('click', () => {
+		let role = 5;
+		if (role == 10) {
+			roleEl.value = "Administrator";
+			console.log(role + ": Administrator");
+		}	else {
+			roleEl.value = "General User";
+			console.log(role + ": General User");
+		}
+	});
+
+</script>
+<!-- ======================================================== -->
+<!-- ======================================================== -->
+
 <% include theme/footer %>
