@@ -50,7 +50,8 @@ router.get('/profile', mid.requiresLogin, function (req, res, next) {
         kudos: user.kudos,
         role: user.role,
         updatedOn: user.updatedOn,
-        createdOn: user.createdOn
+        createdOn: user.createdOn,
+        tags: req.query.id
       });
     }
   });
