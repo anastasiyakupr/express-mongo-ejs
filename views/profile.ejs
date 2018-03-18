@@ -1,9 +1,9 @@
 <% include theme/header %>
 <div id="profile">
-	<input type="submit" value="<% if (role===10) {roleTitle="Administrator";roleType="5";}	else {roleTitle="General User";roleType="10";} %><%= roleTitle %>" id="role" style="display:inline-block;color:#999;font-size:0.65em;text-transform:uppercase;background:rgba(0,0,0,0.05);line-height:1;padding:4px;margin-bottom:10px;border:0;border-radius:4px;outline-color: #ccc;" />
-	<h1 style="margin:0"><%= alias %></h1>
-	<h3 style="margin:0"><%= firstName %> <%= lastName %></h3>
-	<p><a href="mailto:<%= email %>"><%= email %></a></p>
+	<input type="submit" value="<% if (role===10) {roleTitle="Administrator";roleType="5";}	else {roleTitle="General User";roleType="10";} %><%= roleTitle %>" id="role" class="tag" />
+	<h1><%= alias %></h1>
+	<h3><%= firstName %> <%= lastName %></h3>
+	<a href="mailto:<%= email %>"><%= email %></a>
 	<p><b>Level:</b> <%= lvl %></p>
 	<p><b>XP:</b> <%= xp %></p>
 	<p><b>Kudos:</b> <%= kudos %></p>
@@ -14,9 +14,6 @@
 	<p style="font-size:0.85em"><b>Joined On:</b><br/><%= createdOn %></p>
 </div>
 
-<!-- ============================== -->
-<!--  TODO: Refactor and integrate  -->
-<!-- ============================== -->
 <script>
 
 	let roleType = <%= role %>;
@@ -39,7 +36,5 @@
 	});
 
 </script>
-<!-- ============================== -->
-<!-- ============================== -->
 
 <% include theme/footer %>
