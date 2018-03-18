@@ -24,18 +24,28 @@ header {
   background: #fff;
   a {
     display: inline-block;
-    padding: 10px;
+    padding: 5px 10px;
     border-left: 1px solid #eee;
     border-bottom: 3px solid transparent;
-    &:hover {
-      border-bottom: 3px solid rgba(purple,0.5);
+    &:first-child {
+      border: none;
+    }
+    &:link, &:visited {
+      color: #999;
+      text-decoration: none;
+    }
+    &:hover, &:visited:hover {
+      color: rgba(0, 100, 160, 0.85);
+      border-bottom: 3px solid rgba(purple, 0.5);
     }
   }
   .user {
     float: left;
     padding: 10px;
   }
-  .menu {float: right;}
+  .menu {
+    display: inline-block;
+  }
 }
 footer {
   min-height: 100px;
@@ -78,20 +88,7 @@ h1 {
   color: #333;
   margin: 10px 0;
 }
-h3 {
-  font-weight: normal;
-  margin: 20px 0 0;
-}
-a {
-  &:link, &:visited {
-    color: #999;  
-    text-decoration: none;
-  }
-  &:hover, &:visited:hover {
-    color: rgba(0,100,160,0.85);
-    transition: 0.35s ease-in;
-  }
-}
+
 #mainContainer {
   padding: 20px;
   background: rgba(255,255,255,0.85);
@@ -100,6 +97,20 @@ a {
   width: 100%;
   max-width: 65%;
   text-align: left;
+  h3 {
+    font-weight: normal;
+    margin: 20px 0 0;
+  }
+  a {
+    &:link, &:visited {
+      color: #999;  
+      text-decoration: none;
+    }
+    &:hover, &:visited:hover {
+      color: rgba(0,100,160,0.85);
+      transition: 0.35s ease-in;
+    }
+  }
 }
 .group {
   &:before,
@@ -126,4 +137,23 @@ a {
   border-radius: 4px;
   // Chrome: 'Active' outline
   outline-color: #ccc; 
+}
+
+#devTools {
+  position: fixed;
+  top: $space;
+  right: $space;
+  width: 100px;
+  height: 60px;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  border-radius: $space/4;
+  background-color: rgba(0,0,0,0.5);
+  .viewportSize {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;
+  }
 }
