@@ -1,12 +1,7 @@
-<%
-
-// Create title of Error
-let title = error.status + ' Error' %>
-
-%>
-
 <% include theme/header %>
-	<h1>Awwwwww, Sheeit...</h1>
-	<h2><%= error.status %> - <%= message %></h2>
-	<pre><%= error.stack %></pre>
+	<div id="error">
+		<h1><%= error.status + ' Error' %></h1>
+		<h2><%= message %></h2>
+		<!--<pre><%= error.stack %></pre>-->
+	</div>
 <% include theme/footer %>

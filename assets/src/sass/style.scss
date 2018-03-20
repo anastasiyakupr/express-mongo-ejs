@@ -17,34 +17,55 @@ body {
   margin: 0;
   background: #999;
 }
+ul {
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
+  }
+}
 header {
   text-align: center;
   box-shadow: 0 3px rgba(0,0,0,0.5);
   padding: 0 10px;
   background: #fff;
-  a {
-    display: inline-block;
-    padding: 5px 10px;
-    border-left: 1px solid #eee;
-    border-bottom: 3px solid transparent;
-    &:first-child {
-      border: none;
-    }
-    &:link, &:visited {
-      color: #999;
-      text-decoration: none;
-    }
-    &:hover, &:visited:hover {
-      color: rgba(0, 100, 160, 0.85);
-      border-bottom: 3px solid rgba(purple, 0.5);
-    }
-  }
   .user {
     float: left;
+    width: 100%;
+    color: #eee;
+    text-align: center;
     padding: 10px;
+    background: #666;
   }
   .menu {
-    display: inline-block;
+    width: 100%;
+    ul {
+      li {
+        float: left;
+        width: 25%;
+        border-left: 1px solid #eee;
+        &:first-child {
+          border: none;
+        }
+        a {
+          display: block;
+          position: relative;
+          line-height: 1;
+          padding: 13px 10px 10px;
+          
+          border-bottom: 3px solid transparent;
+          
+          &:link, &:visited {
+            color: #999;
+            text-decoration: none;
+          }
+          &:hover, &:visited:hover {
+            color: rgba(0, 100, 160, 0.85);
+            border-bottom: 3px solid rgba(0, 100, 160, 0.25);
+          }
+        }        
+      }
+    }
   }
 }
 footer {
@@ -87,6 +108,13 @@ button {
 h1 {
   color: #333;
   margin: 10px 0;
+}
+h2 {
+  margin: 0;
+}
+
+#error {
+  padding: $space;
 }
 
 #mainContainer {

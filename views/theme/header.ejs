@@ -7,10 +7,19 @@
   </head>
   <body>
     <header class="group">
-      <div class="user"><b><%= alias %></b></a>
+      <div class="user"><b><%= alias %></b></div>
+      <div class="menu group">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <% if (!currentUser) { %>
+          <li><a href="/login">Log In</a></li>
+          <li><a href="/register">Register</a></li>
+          <% } else { %>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/logout">Log Out</a></li>
+          <% } %>
+        </ul>
       </div>
-      <div class="menu">
-          <a href="/">Home</a><% if (!currentUser) { %><a href="/login">Log In</a><a href="/register">Register</a><% } else { %><a href="/profile">Profile</a><a href="/contact">Contact</a><a href="/logout">Log Out</a><% } %>
-        </div>
     </header>
     <div id="mainContainer">  

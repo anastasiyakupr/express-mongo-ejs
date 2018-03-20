@@ -43,7 +43,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(sassMiddleware({
-  src: __dirname + '/assets/src/scss',
+  src: __dirname + '/assets/src/sass',
   dest: __dirname + '/assets/public/css',
   prefix: '/css',
   indentedSyntax: false, // true = .sass and false = .scss
@@ -56,8 +56,12 @@ app.use(express.static(path.join(__dirname, 'assets/public')));
 // Routes
 var routes = require('./routes/');
 app.use('/', routes);
+
 var contact = require('./routes/contact');
 app.use('/contact', contact);
+
+// var quiz = require('./routes/quiz');
+// app.use('/', quiz);
 
 // Catch 404 and forward to Error Handler
 app.use(function(req, res, next) {

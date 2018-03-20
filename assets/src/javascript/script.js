@@ -4,13 +4,12 @@
 console.log("The file 'script.min.js' has loaded...");
 
 // Developer Tools
-const devTools = document.createElement('DIV');
+const devTools = document.createElement('div');
 devTools.setAttribute('id', 'devTools');
 
 const dev = document.getElementById('developer');
 
 let toggle = 0;
-
 
 let viewportWidth = window.innerWidth,
 		viewportHeight = window.innerHeight;
