@@ -1,4 +1,81 @@
 <% include theme/header %>
-    <h1><%= title %></h1>
-    <p>Welcome to The <%= title %> Page</p>
+			<h1><%= title %></h1>
+			<p>Welcome to The <%= title %> Page</p>
+			<script>
+				// Define parent element
+				const carousel = document.getElementById('carousel');
+
+				// Create dynamic slide
+				const slide = document.createElement('div');
+				slide.classList.add('slide');
+				carousel.appendChild(slide);
+
+				// Create left and right navigation
+				const leftArrow = document.createElement('div');
+				const rightArrow = document.createElement('div');
+				leftArrow.classList.add('leftArrow');
+				rightArrow.classList.add('rightArrow');
+				slide.appendChild(leftArrow);
+				slide.appendChild(rightArrow);
+
+				// Add and display the initial slide count
+				let slideNum = 0;
+
+				// Initialize slide info and nav options
+				slide.insertAdjacentHTML('beforeend', '<span class="slideInfo">Slide #' + slideNum + '</span>');
+				leftArrow.style.display = "none";
+
+				// Control slide navigation
+				function chooseSlide(direction) {
+						
+						// Establish the slide count element
+						const slideInfo = document.querySelector('.slideInfo');
+						
+						// Remove/Append slide count info
+						viewSlide = () => {
+								
+								if (slideInfo) { slide.removeChild(slideInfo); };
+								slide.insertAdjacentHTML('beforeend', '<span class="slideInfo">Slide #' + slideNum + '</span>');
+								
+								if (slideNum === 0) {
+										leftArrow.style.display = "none";
+								} else if (slideNum === 3) {
+										rightArrow.style.display = "none";
+								} else {
+										leftArrow.style.display = "block";
+										rightArrow.style.display = "block";
+								}
+								
+						};
+						
+						// Navigate slides in the direction chosen by user
+						if (direction === 'left' && slideNum > 0) { slideNum -= 1; };
+						if (direction === 'right' && slideNum < 3) { slideNum += 1;	};
+						
+						// Display slides according to validated slide numbers
+						if (slideNum > 0) {
+
+								if (slideNum === 1) {
+										slide.style.backgroundColor = "green";
+										viewSlide();
+								} else if (slideNum === 2) {
+										slide.style.backgroundColor = "orange";
+										viewSlide();
+								} else if (slideNum === 3) {
+										slide.style.backgroundColor = "purple";
+										viewSlide();
+								}
+
+						} else if (slideNum <= 0) {
+						
+								slide.style.backgroundColor = "";
+								viewSlide();
+								
+						}
+				};
+
+				// Slide navigation
+				leftArrow.addEventListener('click', () => {chooseSlide("left");});
+				rightArrow.addEventListener('click', () => {chooseSlide("right");});
+			</script>
 <% include theme/footer %>

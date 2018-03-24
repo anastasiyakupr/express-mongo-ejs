@@ -58,6 +58,37 @@ router.get('/profile', mid.requiresLogin, function (req, res, next) {
 });
 
 // ==================================================
+// POST /profile
+// ==================================================
+
+// router.post('/profile', mid.requiresLogin, function (req, res, next) {
+
+  // return res.redirect('/profile?id=' + user.userId);
+
+  // Edit User
+  // User.(userData, function (error, user) {
+  //   if (error) {
+  //     return next(error);
+  //   } else {
+  //     req.session.userId = user._id;
+  //     req.session.alias = user.alias;
+  //     req.session.email = user.email;
+  //     return res.redirect('/profile');
+  //   }
+  // });
+
+  // let userData = {
+  //   alias: req.body.alias,
+  //   email: req.body.email,
+  //   firstName: req.body.firstname,
+  //   lastName: req.body.lastname,
+  //   password: req.body.password
+  // };
+
+// )};
+
+
+// ==================================================
 // GET /login
 // ==================================================
 router.get('/login', mid.loggedOut, function (req, res, next) {
