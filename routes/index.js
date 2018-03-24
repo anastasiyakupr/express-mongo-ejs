@@ -19,6 +19,16 @@ router.get('/', function (req, res, next) {
 // GET /profile
 // ==================================================
 router.get('/profile', mid.requiresLogin, function (req, res, next) {
+
+  User.findById(req.session.userId).exec(function (error, user) {
+    if (error) {
+      return next(error);
+    } else {
+
+      console.log('user.firstname: ' + user.firstname + ' | user.lastname: ' + user.lastname + ' | user.alias: ' + user.alias);
+    }
+  });
+
   User.findById(req.session.userId).exec(function( error, user ) {
     if (error) {
       return next(error);

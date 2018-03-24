@@ -60,8 +60,8 @@ app.use('/', routes);
 var contact = require('./routes/contact');
 app.use('/contact', contact);
 
-// var quiz = require('./routes/quiz');
-// app.use('/', quiz);
+var admin = require('./routes/admin');
+app.use('/admin', admin);
 
 // Catch 404 and forward to Error Handler
 app.use(function(req, res, next) {

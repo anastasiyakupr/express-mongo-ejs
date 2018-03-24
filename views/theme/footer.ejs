@@ -1,13 +1,13 @@
+					</div>
+				</div>
 			</div>
+			<footer>
+				&copy; <%= new Date().getFullYear(); %> Untitled Website, LLC
+				<% if (email) { %>
+				<p id="developer"><%= email %></p>
+				<% } %>
+			</footer>
 		</div>
-	</div>
-</div>
-<footer>
-	&copy; <%= new Date().getFullYear(); %> Untitled Website, LLC
-	<% if (email) { %>
-	<p id="developer"><%= email %></p>
-	<% } %>
-</footer>
-<script defer src='/js/script.min.js'></script>
-</body>
+		<script defer src='/js/script.min.js'></script>
+	</body>
 </html>
