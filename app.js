@@ -18,7 +18,7 @@ var app = express();
 app.use(session({
   secret: 'htmlcore',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: false
 }));
 
 // Session Template Variables
@@ -27,6 +27,7 @@ app.use( function (req, res, next) {
   res.locals.currentUser = req.session.userId;
   res.locals.alias = req.session.alias;
   res.locals.email = req.session.email;
+  res.locals.emailHash = req.session.emailHash;
   next();
 });
 

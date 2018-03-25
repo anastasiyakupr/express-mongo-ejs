@@ -4,7 +4,6 @@
     <title><%= title %></title>
     <base href="/">
     <link href='/css/style.css' rel='stylesheet' />
-    <link href="https://file.myfontastic.com/wXeoSHYwHL4KB7siUDL7X9/icons.css" rel="stylesheet">
   </head>
   <body>
     <div id="mainContainer">
@@ -13,7 +12,7 @@
           <div class="logo">Untitled</div>
           <div class="user group">
           <% if (currentUser) { %>
-            <div class="user-avatar"></div>
+            <div class="user-avatar" style="background-image: url('https://www.gravatar.com/avatar/<%= emailHash %>;"></div>
             <div class="user-name"><b><%= alias %></b></div>
           <% } %>
           </div>
