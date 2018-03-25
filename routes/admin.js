@@ -3,7 +3,6 @@
 let express = require('express');
 let router = express.Router();
 let mid = require('../middleware');
-let md5 = require('md5');
 
 let User = require('../models/user');
 

@@ -124,7 +124,7 @@ router.post('/login', function (req, res, next) {
         req.session.userId = user._id;
         req.session.alias = user.alias;
         req.session.email = user.email;
-        req.session.hashed = md5(user.email);
+        req.session.emailHashed = user.emailHashed;
         return res.redirect('/profile');
       }
     });
@@ -193,7 +193,7 @@ router.post('/register', function (req, res, next) {
           req.session.userId = user._id;
           req.session.alias = user.alias;
           req.session.email = user.email;
-          req.session.emailHash = md5(user.email);
+          req.session.emailHash = user.emailHash;
           return res.redirect('/profile');
         }
       });
