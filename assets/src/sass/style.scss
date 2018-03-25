@@ -124,7 +124,7 @@ $space: 20px;
 .icon-home:before {
   content: "\43";
 }
-.icon-bell:before {
+.icon-notification:before {
   content: "\44";
 }
 .icon-mail:before {
@@ -204,33 +204,56 @@ header {
   z-index: 1000;
   text-align: center;
   box-shadow: 0 3px 1px rgba(0,0,0,0.125);
-  #nav {
-    color: #999;
-    padding: 10px;
+  #head {
+    position: relative;
+    text-align: center;
+    padding: $space/4;
     background: #333;
     .logo {
       float: left;
       font-size: 1.25em;
       font-weight: 600;
-      line-height: 1.65;
+      line-height: 2.15;
+      padding-left: 40px;
+    }
+    .nav {
+      position: relative;
+      float: left;
+      &.icon-menu {
+        position: absolute;
+        font-size: 2em;
+        top: 50%;
+        left: $space/4;
+        transform: translateY(-50%)
+      }
+    }
+    .icon-notification::before {
+      float: right;
+      font-size: 1.5em;
+      line-height: 1.8;
+      margin-right: $space/2;
     }
     .user {
       float: right;
       .user {
-        &-name {
-          float: left;
-          color: #eee;
-          text-align: center;
-          line-height: 2;
-        }
         &-avatar {
           float: left;
-          width: $space*1.5;
-          height: $space*1.5;
-          margin-right: $space/2;
+          width: $space*1.85;
+          height: $space*1.85;
           background: rgba(255,255,255,0.15);
           background-size: cover;
           background-position: 50%;
+          border-radius: $space/4;
+        }
+        &-name {
+          // TODO: Create "Tip" w/ User Info
+          display: none; // Do not display user name
+          max-width: 100px;
+          color: #eee;
+          font-size: 0.85em;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
         }
       }
     }
@@ -244,7 +267,6 @@ header {
     overflow: hidden;
     ul {
       overflow-x: auto;
-      height: 60px;
       li {
         display: inline-block;
         border-left: 1px solid #eee;
@@ -255,8 +277,8 @@ header {
         a {
           display: block;
           position: relative;
-          line-height: 0;
-          padding: $space/1.5 $space/2 12px $space/1.25;
+          line-height: 2.45em;
+          padding: 5px $space 0;
           border-bottom: 3px solid transparent;
           &:link, &:visited {
             color: #999;
@@ -326,6 +348,7 @@ button {
 h1 {
   color: #333;
   margin: 20px 0;
+  line-height: 1;
 }
 
 #error {

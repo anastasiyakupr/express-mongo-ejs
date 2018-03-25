@@ -8,7 +8,8 @@
   <body>
     <div id="mainContainer">
       <header>
-        <div id="nav" class="group">
+        <div id="head" class="group">
+          <div class="nav icon-menu"></div>
           <div class="logo">Untitled</div>
           <div class="user group">
           <% if (currentUser) { %>
@@ -16,6 +17,7 @@
             <div class="user-name"><b><%= alias %></b></div>
           <% } %>
           </div>
+          <div class="icon-notification"></div>
         </div>
         <div class="menu">
           <ul class="group">
