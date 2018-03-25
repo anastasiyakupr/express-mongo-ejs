@@ -3,6 +3,7 @@
 let express = require('express');
 let router = express.Router();
 let mid = require('../middleware');
+let md5 = require('md5');
 
 let User = require('../models/user');
 
@@ -123,6 +124,7 @@ router.post('/login', function (req, res, next) {
         req.session.userId = user._id;
         req.session.alias = user.alias;
         req.session.email = user.email;
+        req.session.hashed = md5(user.email);
         return res.redirect('/profile');
       }
     });
@@ -177,6 +179,7 @@ router.post('/register', function (req, res, next) {
       let userData = {
         alias: req.body.alias,
         email: req.body.email,
+        emailHash: md5(req.body.email),
         firstName: req.body.firstname,
         lastName: req.body.lastname,
         password: req.body.password
@@ -190,6 +193,7 @@ router.post('/register', function (req, res, next) {
           req.session.userId = user._id;
           req.session.alias = user.alias;
           req.session.email = user.email;
+          req.session.emailHash = md5(user.email);
           return res.redirect('/profile');
         }
       });

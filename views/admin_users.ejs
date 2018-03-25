@@ -1,3 +1,16 @@
 <% include theme/header %>
 	<h1><%= title %></h1>
+	<ul>
+		<% for (i=0; i < userlist.length; i++) { %>
+		<li style="margin: 20px auto;">
+			<div>
+				<img src="https://www.gravatar.com/avatar/<%= userlist[i].emailHash %>" 
+				alt="<%= userlist[i].firstName %><%= userlist[i].lastName %>" />
+			</div>
+			<b><%= userlist[i].alias %></b><br/>
+			<%= userlist[i].email %><br/>
+			<%= userlist[i].lastName %>, <%= userlist[i].firstName %>
+		</li>
+		<% } %>
+	</ul>
 <% include theme/footer %>

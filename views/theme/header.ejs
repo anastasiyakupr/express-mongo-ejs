@@ -4,24 +4,27 @@
     <title><%= title %></title>
     <base href="/">
     <link href='/css/style.css' rel='stylesheet' />
-    <link href="https://file.myfontastic.com/DMgSxD4Qu4vdmCVZtUMWNf/icons.css" rel="stylesheet">
+    <link href="https://file.myfontastic.com/wXeoSHYwHL4KB7siUDL7X9/icons.css" rel="stylesheet">
   </head>
   <body>
     <div id="mainContainer">
       <header>
         <div id="nav" class="group">
           <div class="logo">Untitled</div>
+          <div class="user group">
           <% if (currentUser) { %>
-            <div class="user"><b><%= alias %></b></div>
+            <div class="user-avatar"></div>
+            <div class="user-name"><b><%= alias %></b></div>
           <% } %>
+          </div>
         </div>
         <div class="menu">
           <ul class="group">
           <!--
           --><li><a href="/"><span class="icon-home"></span>Home</a></li><!--
           <% if (!currentUser) { %>
+          --><li><a href="/register"><span class="icon-register"></span>Register</a></li><!--
           --><li><a href="/login"><span class="icon-log-in"></span>Log In</a></li><!--
-          --><li><a href="/register"><span class="icon-user-add"></span>Register</a></li><!--
           <% } else { %>
           --><li><a href="/profile"><span class="icon-user"></span>Profile</a></li><!--
           --><li><a href="/contact"><span class="icon-mail"></span>Contact</a></li><!--

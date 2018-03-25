@@ -3,13 +3,14 @@
 let express = require('express');
 let router = express.Router();
 let mid = require('../middleware');
+let md5 = require('md5');
 
 let User = require('../models/user');
 
 // ==================================================
 // GET /admin
 // ==================================================
-router.get('/', mid.requiresLogin, function (req, res, next) {
+router.get('/', /* mid.requiresLogin,*/function (req, res, next) {
 
 	// User.findById(req.session.userId).exec(function (error, user) {
   //   if (error) {
@@ -29,11 +30,20 @@ router.get('/', mid.requiresLogin, function (req, res, next) {
 // ==================================================
 // GET /admin/users
 // ==================================================
-router.get('/users', mid.requiresLogin, function (req, res, next) {
+router.get('/users', /* mid.requiresLogin, */function (req, res, next) {
 
-  return res.render('admin_users', {
-		title: 'User List'
-	});
+  User.find(function( error, user ) {
+    if (error) {
+      return next(error);
+    } else {
+
+      return res.render('admin_users', {
+        title: 'Users',
+        userlist: user
+      });
+
+    }
+  });
 	
 });
 

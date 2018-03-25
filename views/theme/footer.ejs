@@ -2,12 +2,33 @@
 				</div>
 			</div>
 			<footer>
+				<div id="icons" class="group">
+					<div class="social">
+						<span class="icon-facebook"></span>
+						<span class="icon-twitter"></span>
+						<span class="icon-google-plus"></span>
+					</div>
+					<div class="community">
+							<span class="icon-codepen"></span>
+							<span class="icon-treehouse"></span>
+							<span class="icon-github"></span>
+							<span class="icon-bitbucket"></span>
+							<span class="icon-linkedin"></span>
+					</div>
+					<div class="languages">
+						<span class="icon-html5"></span>
+						<span class="icon-css3"></span>
+						<span class="icon-sass"></span>
+						<span class="icon-nodejs"></span>
+					</div>
+				</div>
 				&copy; <%= new Date().getFullYear(); %> Untitled Website, LLC
 				<% if (email) { %>
 				<p id="developer"><%= email %></p>
 				<% } %>
 			</footer>
 		</div>
+		<div id="developer"></div>
 		<script defer src='/js/script.min.js'></script>
 	</body>
 </html>

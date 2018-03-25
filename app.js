@@ -18,7 +18,7 @@ var app = express();
 app.use(session({
   secret: 'htmlcore',
   resave: true,
-  saveUninitialized: false
+  saveUninitialized: true
 }));
 
 // Session Template Variables
