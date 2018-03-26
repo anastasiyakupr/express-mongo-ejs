@@ -23,12 +23,10 @@
 					</div>
 				</div>
 				&copy; <%= new Date().getFullYear(); %> Untitled Website, LLC
-				<% if (email) { %>
-				<p id="developer"><%= email %></p>
-				<% } %>
+				<p id="developer"><% if (email) { %><%= email %><% } %></p>
+				<a href="/admin" class="icon-admin"></a>
 			</footer>
 		</div>
-		<div id="developer"></div>
 		<script defer src='/js/script.min.js'></script>
 	</body>
 </html>

@@ -175,7 +175,6 @@ body {
   font-size: 14px;
   font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
   line-height: 1.25em;
-  text-align: center;
   padding: 0;
   margin: 0;
   background: #333;
@@ -186,7 +185,7 @@ body {
 p {
   padding: 0;
   margin: 10px 0;
-  &:nth-last-child() {
+  &:nth-last-child {
     margin: 0;
   }
 }
@@ -267,6 +266,7 @@ header {
     overflow: hidden;
     ul {
       overflow-x: auto;
+      height: 78px;
       li {
         display: inline-block;
         border-left: 1px solid #eee;
@@ -303,6 +303,7 @@ footer {
   min-height: 100px;
   color: #ccc;
   font-size: 0.85em;
+  text-align: center;
   box-shadow: inset 0 3px rgba(0,0,0,0.1);
   padding: 20px 0;
   background: #333;
@@ -489,4 +490,103 @@ h1 {
     }	
   }
 }
+form {
+  @media screen and (min-width: 768px) {
+    float: left;
+    width: 48%;
+    margin: 1% !important;
+    &::after {
+      clear:both;
+    }
+  }
+  li {
+    &.profile {
+      display: block;
+      position: relative;
+      padding: $space/2;
+      background: #fff;
+      border: 1px solid #999;
+      .user {
+        &_info,
+        &_avatar {
+          float: left;
+        }
+        &_info {
+          width: 75%;
+          padding-left: $space/2;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          &-email {
+            font-size: 0.75em;
+          }
+          div {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            &:last-child {
+              font-size: 0.85em;
+            }
+            span {
+              color: #999;
+              &::before {
+                position: relative;
+                top: 1px;
+                margin-right: $space/4;
+              }
+              
+            }
+          }
+        }
+        &_avatar {
+          width: 25%;
+          @media screen and (min-width: 480px) {
+            width: 14%;
+          }
+          @media screen and (min-width: 768px) {
+            width: 10%;
+          }
+          span {
+            display: block;
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+          }
+        }
+      }
+    }
+  }
+}
 
+form {
+  padding: 0;
+  margin: 0;
+  .buttons {
+    text-align: center;
+    margin: $space/2 0 $space;
+  }
+}
+
+#modal {
+  z-index: 8000;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.5);
+  overflow: hidden;
+  .modal-card {
+    z-index: 8500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    padding: $space/2;
+    background: #fff;
+    border-radius: $space/2;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.12);
+  }
+}

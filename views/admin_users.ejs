@@ -1,16 +1,23 @@
 <% include theme/header %>
 	<h1><%= title %></h1>
-	<ul>
+	<ul class="group">
 		<% for (i=0; i < userlist.length; i++) { %>
-		<li style="margin: 20px auto;">
-			<div>
-				<img src="https://www.gravatar.com/avatar/<%= userlist[i].emailHash %>" 
-				alt="<%= userlist[i].firstName %><%= userlist[i].lastName %>" />
+		<form method="POST" action="/profile"" data-id="<%= userlist[i]._id %>">
+			<li class="profile group">
+				<div class="user_avatar">
+					<span style="background: url('https://www.gravatar.com/avatar/<%= userlist[i].emailHash %>') 50% no-repeat;background-size: cover;"></span>
+				</div>
+				<div class="user_info">
+					<div><%= userlist[i].alias %></div>
+					<div class="user_info-email"><span class="icon-mail"></span><%= userlist[i].email %></div>
+					<div><%= userlist[i].lastName %>, <%= userlist[i].firstName %></div>
+				</div>
+			</li>
+			<div class="buttons">
+				<button class="userEdit">Edit</button>
+				<button class="userDelete">X</button>
 			</div>
-			<b><%= userlist[i].alias %></b><br/>
-			<%= userlist[i].email %><br/>
-			<%= userlist[i].lastName %>, <%= userlist[i].firstName %>
-		</li>
+		</form>
 		<% } %>
 	</ul>
 <% include theme/footer %>
