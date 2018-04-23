@@ -491,14 +491,6 @@ h1 {
   }
 }
 form {
-  @media screen and (min-width: 768px) {
-    float: left;
-    width: 48%;
-    margin: 1% !important;
-    &::after {
-      clear:both;
-    }
-  }
   li {
     &.profile {
       display: block;
