@@ -12,7 +12,7 @@ For the `.scss` extension to be processed `indentedSyntax: false` was used along
 
 `show dbs` - Display the databases
 
-`use bookworm` - Specify the database you're going to work with
+`use [db_name]` - Specify the database you're going to work with
 
 `show collections` - Shows the document collections for the selected database
 
